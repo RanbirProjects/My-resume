@@ -1,5 +1,3 @@
-![BC128405-B669-4126-BDD5-0B494BA2FE71_1_105_c](https://github.com/user-attachments/assets/13d689b9-1b59-4a0c-a66a-f8468b294de5)# 🚀 Ranbir Singh - Portfolio Website
-
 A modern, responsive portfolio website built with the MERN stack (MongoDB, Express.js, React.js, Node.js) featuring beautiful animations and a professional design.
 Home page
 ![ABDE3FEB-FD77-47BE-9778-4DC9C1D51DAE_1_105_c](https://github.com/user-attachments/assets/f2ed2121-a7ec-4f20-a560-827d261fbfe0)
