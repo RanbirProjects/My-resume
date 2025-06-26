@@ -113,10 +113,6 @@
 [functions]
   directory = "netlify/functions"
 
-# Edge functions (if you want to use Netlify Edge Functions)
-[edge_functions]
-  directory = "netlify/edge-functions"
-
 # Form handling
 [forms]
   # Enable form handling
