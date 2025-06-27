@@ -1,16 +1,142 @@
 [build]
+  # Build command for the frontend React app
   command = "cd client && npm install && npm run build"
+  
+  # Publish directory (where the built files are located)
   publish = "client/build"
+  
+  # Base directory (root of the project)
+  base = "."
 
+[build.environment]
+  # Node.js version
+  NODE_VERSION = "18"
+  
+  # NPM version
+  NPM_VERSION = "9"
+
+# Redirects for React Router (SPA routing)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
+# Headers for security and performance
 [[headers]]
   for = "/*"
   [headers.values]
+    # Security headers
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
-    Cache-Control = "public, max-age=31536000, immutable" 
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Cache control for static assets
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "text/css"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# API proxy for backend (if you deploy backend separately)
+[[redirects]]
+  from = "/api/*"
+  to = "https://your-backend-url.com/api/:splat"
+  status = 200
+  force = true
+
+# Custom 404 page
+[[redirects]]
+  from = "/404"
+  to = "/index.html"
+  status = 404
+
+# Sitemap redirect (if you have one)
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+
+# Robots.txt redirect (if you have one)
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+
+# Environment variables (you can set these in Netlify dashboard)
+[context.production.environment]
+  REACT_APP_API_URL = "https://your-backend-url.com"
+  REACT_APP_ENVIRONMENT = "production"
+
+[context.deploy-preview.environment]
+  REACT_APP_API_URL = "https://your-backend-url.com"
+  REACT_APP_ENVIRONMENT = "preview"
+
+[context.branch-deploy.environment]
+  REACT_APP_API_URL = "https://your-backend-url.com"
+  REACT_APP_ENVIRONMENT = "development"
+
+# Functions (if you want to use Netlify Functions)
+[functions]
+  directory = "netlify/functions"
+
+# Form handling
+[forms]
+  # Enable form handling
+  enabled = true
+
+# Processing
+[processing]
+  # Enable image optimization
+  images = true
+  
+  # Enable CSS optimization
+  css = true
+  
+  # Enable JS optimization
+  js = true
+
+# Dev settings
+[dev]
+  # Development server settings
+  command = "cd client && npm start"
+  port = 3000
+  publish = "client/build"
+  
+  # Environment variables for development
+  [dev.environment]
+    REACT_APP_API_URL = "http://localhost:5001"
+    REACT_APP_ENVIRONMENT = "development" 

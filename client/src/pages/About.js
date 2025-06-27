@@ -155,6 +155,16 @@ const About = () => {
 
   const experiences = [
     {
+      role: 'MERN Full-Stack Developer',
+      company: 'Zedd Labz',
+      description: 'Currently working as a MERN stack developer, building scalable web applications and contributing to innovative projects.'
+    },
+    {
+      role: 'Teaching Assistant',
+      company: 'Coding Ninjas',
+      description: 'Mentored students in programming concepts, helped with code reviews, and provided guidance on web development projects.'
+    },
+    {
       role: 'Full-Stack Developer',
       company: 'Freelance',
       description: 'Building modern web applications using MERN stack with focus on user experience and performance.'
