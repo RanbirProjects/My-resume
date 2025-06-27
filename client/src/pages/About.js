@@ -163,16 +163,6 @@ const About = () => {
       role: 'Teaching Assistant',
       company: 'Coding Ninjas',
       description: 'Mentored students in programming concepts, helped with code reviews, and provided guidance on web development projects.'
-    },
-    {
-      role: 'Full-Stack Developer',
-      company: 'Freelance',
-      description: 'Building modern web applications using MERN stack with focus on user experience and performance.'
-    },
-    {
-      role: 'Mobile App Developer',
-      company: 'Personal Projects',
-      description: 'Developing cross-platform mobile applications using Flutter and React Native.'
     }
   ];
 
